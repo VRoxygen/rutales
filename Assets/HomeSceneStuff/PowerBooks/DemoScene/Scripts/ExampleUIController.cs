@@ -1,0 +1,45 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TLGFPowerBooks;
+using UnityEngine.EventSystems;
+
+public class ExampleUIController : MonoBehaviour {
+
+	public PBook pBook;
+
+	
+
+	public void OpenBook () {
+		pBook.OpenBook ();
+        Debug.Log("book finally opened!!!");
+	}
+
+	public void CloseBook () {
+		pBook.CloseBook ();
+	}
+
+	public void NextPage () {
+		pBook.NextPage ();
+	}
+
+	public void PrevPage () {
+		pBook.PrevPage ();
+	}
+
+	public void GoToLastPage () {
+		pBook.GoToLastPage (50);
+	}
+
+	public void GoToFirstPage () {
+		pBook.GoToFirstPage (50);
+	}
+
+	public void JumpToLastPage () {
+		pBook.JumpToLastPage (true);
+	}
+
+	public void JumpToFirstPage () {
+		pBook.JumpToFirstPage (true);
+	}
+}
