@@ -70,7 +70,7 @@
                 if (blockingObjects == BlockingObjects.ThreeD || blockingObjects == BlockingObjects.All)
                 {
                     RaycastHit hit;
-                    Physics.Raycast(ray, out hit, maxDistance, m_BlockingMask);
+                    Physics.Raycast(ray, out hit, maxDistance);
                     if (hit.collider != null && !VRTK_PlayerObject.IsPlayerObject(hit.collider.gameObject))
                     {
                         hitDistance = hit.distance;

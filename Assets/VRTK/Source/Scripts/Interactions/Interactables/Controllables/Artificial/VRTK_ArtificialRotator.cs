@@ -103,15 +103,6 @@ namespace VRTK.Controllables.ArtificialBased
         }
 
         /// <summary>
-        /// The SetValue method sets the current Angle of the rotator
-        /// </summary>
-        /// <param name="value">The new rotation value</param>
-        public override void SetValue(float value)
-        {
-            SetAngleTarget(value);
-        }
-
-        /// <summary>
         /// The GetContainer method returns the GameObject that is generated to hold the rotator control.
         /// </summary>
         /// <returns>The GameObject container of the rotator control.</returns>
@@ -211,8 +202,6 @@ namespace VRTK.Controllables.ArtificialBased
 
         protected override void OnEnable()
         {
-            SetValue(storedValue);
-
             ResetParentContainer();
             base.OnEnable();
             rotatorContainer = gameObject;

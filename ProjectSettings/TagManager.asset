@@ -16,6 +16,7 @@ TagManager:
   - SnapCylinder
   - SnapSaucer
   - Head
+  - chest
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - teleport
   - 
   - 
   - 

@@ -27,11 +27,16 @@ public class bookTriggerhouse : MonoBehaviour {
                 Debug.Log("house went down");
             }
             StopCoroutine("raiseHouse");
-            StartCoroutine("raiseHouse");
+            
 
         }
             
         
+    }
+    private void OnTriggerExit(Collider other){
+        if (other.name == "[VRTK][AUTOGEN][BodyColliderContainer]"){
+            StartCoroutine("raiseHouse");
+        }
     }
 
     IEnumerator raiseHouse(){
@@ -40,7 +45,7 @@ public class bookTriggerhouse : MonoBehaviour {
         Debug.Log("house went up");
         standTriggered = true;
         sitTriggered = false;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.0f);
         standTriggered = false;
         yield return null;
     }

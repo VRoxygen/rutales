@@ -15,7 +15,6 @@
 
         private Vector3 defaultRotation;
         private Vector3 openRotation;
-        public GameObject swordGrab;
 
         public override void StartUsing(VRTK_InteractUse usingObject)
         {
@@ -35,9 +34,6 @@
         protected override void Update()
         {
             base.Update();
-
-       
-
             if (open)
             {
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(openRotation), Time.deltaTime * smooth);
@@ -56,19 +52,6 @@
         private void SetDoorRotation(Vector3 interacterPosition)
         {
             side = ((rotated == false && interacterPosition.z > transform.position.z) || (rotated == true && interacterPosition.x > transform.position.x) ? -1 : 1);
-        }
-
-        void OnTriggerEnter(Collider other)
-
-        {
-            Debug.Log("sword touched" + other.name);
-
-            if (other.name == "Sphere")
-            {
-              
-                Debug.Log("door is opening");
-            }
-
         }
     }
 }

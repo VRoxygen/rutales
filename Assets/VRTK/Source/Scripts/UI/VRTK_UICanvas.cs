@@ -5,8 +5,6 @@ namespace VRTK
     using UnityEngine.UI;
     using UnityEngine.EventSystems;
     using System.Collections;
-    using System.Reflection;
-    using System;
 
     /// <summary>
     /// Denotes a Unity World UI Canvas can be interacted with a UIPointer script.
@@ -95,10 +93,6 @@ namespace VRTK
             {
                 customRaycaster.ignoreReversedGraphics = defaultRaycaster.ignoreReversedGraphics;
                 customRaycaster.blockingObjects = defaultRaycaster.blockingObjects;
-                
-                //Use Reflection to transfer the BlockingMask
-                customRaycaster.GetType().GetField("m_BlockingMask", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(customRaycaster,defaultRaycaster.GetType().GetField("m_BlockingMask", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(defaultRaycaster));
-
                 defaultRaycaster.enabled = false;
             }
 

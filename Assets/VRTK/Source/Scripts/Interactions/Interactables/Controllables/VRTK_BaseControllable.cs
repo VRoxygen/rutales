@@ -100,7 +100,6 @@ namespace VRTK.Controllables
         protected Collider[] controlColliders = new Collider[0];
         protected bool createCustomCollider;
         protected Coroutine processAtEndOfFrame;
-        protected float storedValue;
 
         public virtual void OnValueChanged(ControllableEventArgs e)
         {
@@ -152,7 +151,6 @@ namespace VRTK.Controllables
 
         public abstract float GetValue();
         public abstract float GetNormalizedValue();
-        public abstract void SetValue(float value);
         public abstract bool IsResting();
 
         /// <summary>
@@ -224,8 +222,6 @@ namespace VRTK.Controllables
         {
             originalLocalPosition = transform.localPosition;
             originalLocalRotation = transform.localRotation;
-
-            storedValue = GetValue();
         }
 
         protected virtual void OnEnable()
@@ -238,8 +234,6 @@ namespace VRTK.Controllables
 
         protected virtual void OnDisable()
         {
-            storedValue = GetValue();
-
             if (processAtEndOfFrame != null)
             {
                 StopCoroutine(processAtEndOfFrame);
